@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                
+                <h1 class="display-4 text-center">User Form</h1>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                     {% if messages %}
+                     {% for category, message in messages %}
+
+                        <div class="alert alert-{{category}}">
+                            {{message}}
+                        </div>
+                     {% endfor %}
+                     {% endif %}
+
+                {% endwith %}
+                <hr>
+                <form action="{{url_for('admin.add_user')}}" method="POST">
+                    {{ form.csrf_token }}
+                    {{form.name.label}}
+                    {{form.name(class_="form-control",placeholder="Name ...")}}
+
+                    {{form.family.label}}
+                    {{form.family(class_="form-control",placeholder="Family ...")}}
+
+                    {{form.age.label}}
+                    {{form.age(class_="form-control",placeholder="Age ...",type="number",min=1,max=100)}}
+                    
+                    <br>
+                    <input type="submit" value="Create" class="btn btn-success btn-block"> 
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
