@@ -1,7 +1,7 @@
 # Flask Demo App
 
-` virtualenv venv `
-` pip install -r requirements.txt  `
-` create .env in root folder   `
-` run flask db init && flask db migrate && flask db upgrade command  `
+` virtualenv venv ` <br/>
+` pip install -r requirements.txt  ` <br/>
+` create .env in root folder   ` <br/>
+` run flask db init && flask db migrate && flask db upgrade command  ` <br/>
 ` run python run.py `
